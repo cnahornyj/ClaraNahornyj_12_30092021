@@ -1,0 +1,7 @@
+.sessionDuration{
+    background-color: #ff1010;
+}
+
+.sessionDuration > h2{
+    color: #ff8080;
+}

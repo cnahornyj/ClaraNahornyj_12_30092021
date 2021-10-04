@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/Performances.css";
 import {
   RadarChart,
   PolarGrid,
@@ -75,10 +76,10 @@ const USER_PERFORMANCE = [
 class Performances extends Component {
   render() {
     return (
-      <section>
+      <section className="performances">
         <RadarChart outerRadius={90} width={730} height={250} data={data}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
+          <PolarAngleAxis dataKey="subject" stroke="#fff"/>
           <Radar
             dataKey="A"
             stroke="#e60000"
