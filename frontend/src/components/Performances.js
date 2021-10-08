@@ -73,6 +73,11 @@ const USER_PERFORMANCE = [
   }
 ]
 
+// extraire this.data.sessions
+// appliquer une méthode pour remplacer les dates par 1,2,3 etc
+// propsTypes array
+// utiliser les params pour trouver l'id
+
 class Performances extends Component {
   render() {
     return (

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/SessionDuration.css";
-import {LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line} from "recharts";
+import {LineChart, XAxis, Tooltip, Line} from "recharts";
 
 const data = [
   {
@@ -83,13 +83,18 @@ const USER_AVERAGE_SESSIONS = [
   }
 ]
 
+// extraire this.data.sessions
+// appliquer une méthode pour remplacer les dates par L,M,M etc
+// propsTypes array
+// utiliser les params pour trouver l'id
+
 class SessionDuration extends Component {
   render() {
     return (
       <section className="sessionDuration">
         <h2>Durée moyenne des sessions</h2>
         <LineChart
-          width={730}
+          width={250}
           height={250}
           data={data}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}

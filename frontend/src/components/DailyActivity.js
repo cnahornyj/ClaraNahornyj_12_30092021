@@ -8,6 +8,7 @@ import {
   Tooltip,
   Bar,
 } from "recharts";
+import PropTypes from "prop-types";
 
 const data = [
   {
@@ -46,6 +47,11 @@ const data = [
     pv: 4300,
   },
 ];
+
+// extraire this.data.sessions
+// appliquer une méthode pour remplacer les dates par 1,2,3 etc
+// propsTypes array
+// utiliser les params pour trouver l'id
 
 const USER_ACTIVITY = [
   {
@@ -95,17 +101,21 @@ class DailyActivity extends Component {
     return (
       <article className="dailyActivity">
         <h2>Activité quotidienne</h2>
-        <BarChart width={730} height={250} data={data}>
+        <BarChart width={730} height={250} data={this.props.sessions}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="day" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="pv" fill="#282d30" />
-          <Bar dataKey="uv" fill="#e60000" />
+          <Bar dataKey="kilogram" fill="#282d30" />
+          <Bar dataKey="calories" fill="#e60000" />
         </BarChart>
       </article>
     );
   }
 }
+
+DailyActivity.propTypes = {
+  sessions: PropTypes.array
+};
 
 export default DailyActivity;
