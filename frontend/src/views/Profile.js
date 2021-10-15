@@ -61,11 +61,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.state.userInformations);
-    console.log(this.state.activities);
-    console.log(this.state.averageSessions);
-    console.log(this.state.performances);
-
     if (this.state.loading) {
       return (
         <section className="profile">
@@ -73,9 +68,9 @@ class Profile extends Component {
             firstname={this.state.userInformations.userInfos.firstName}
           />
           <article>
-            <DailyActivity sessions={this.state.activities.sessions} />
+            <DailyActivity data={this.state.activities.sessions}/>
             <article>
-              <SessionDuration />
+              <SessionDuration data={this.state.averageSessions.sessions}/>
               <Performances />
               <Score />
             </article>
