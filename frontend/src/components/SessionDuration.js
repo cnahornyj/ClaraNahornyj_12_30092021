@@ -1,94 +1,55 @@
 import React, { Component } from "react";
 import "../styles/SessionDuration.css";
-import {LineChart, XAxis, Tooltip, Line} from "recharts";
+import { LineChart, XAxis, Tooltip, Line } from "recharts";
+import PropTypes from "prop-types";
 
-const data = [
-  {
-    "name": "Page A",
-    "uv": 4000,
-    "pv": 2400,
-    "amt": 2400
-  },
-  {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
-  },
-  {
-    "name": "Page C",
-    "uv": 2000,
-    "pv": 9800,
-    "amt": 2290
-  },
-  {
-    "name": "Page D",
-    "uv": 2780,
-    "pv": 3908,
-    "amt": 2000
-  },
-  {
-    "name": "Page E",
-    "uv": 1890,
-    "pv": 4800,
-    "amt": 2181
-  },
-  {
-    "name": "Page F",
-    "uv": 2390,
-    "pv": 3800,
-    "amt": 2500
-  },
-  {
-    "name": "Page G",
-    "uv": 3490,
-    "pv": 4300,
-    "amt": 2100
+const CustomToolTip = ({ active, payload}) => {
+  if (active && payload && payload.length) {
+      return (
+          <div className="custom-tooltip-average">
+              <p className="custom-tooltip-average-text">{`${payload[0].value} min`}</p>
+          </div>
+      )
   }
-]
-
-const USER_AVERAGE_SESSIONS = [
-  {
-      userId: 12,
-      sessions: [
-          {
-              day: 1,
-              sessionLength: 30
-          },
-          {
-              day: 2,
-              sessionLength: 23
-          },
-          {
-              day: 3,
-              sessionLength: 45
-          },
-          {
-              day: 4,
-              sessionLength: 50
-          },
-          {
-              day: 5,
-              sessionLength: 0
-          },
-          {
-              day: 6,
-              sessionLength: 0
-          },
-          {
-              day: 7,
-              sessionLength: 60
-          }
-      ]
-  }
-]
-
-// extraire this.data.sessions
-// appliquer une méthode pour remplacer les dates par L,M,M etc
-// propsTypes array
-// utiliser les params pour trouver l'id
+  return null;
+}
 
 class SessionDuration extends Component {
+  constructor(props) {
+    super(props);
+    this.data = this.props.data;
+    console.log(this.props.data);
+    this.newData = this.data.map((weekDay) => {
+      switch (weekDay.day) {
+        case 1:
+          return { dayName: "L", ...weekDay };
+          break;
+        case 2:
+          return { dayName: "M", ...weekDay };
+          break;
+        case 3:
+          return { dayName: "M", ...weekDay };
+          break;
+        case 4:
+          return { dayName: "J", ...weekDay };
+          break;
+        case 5:
+          return { dayName: "V", ...weekDay };
+          break;
+        case 6:
+          return { dayName: "S", ...weekDay };
+          break;
+        case 7:
+          return { dayName: "D", ...weekDay };
+          break;
+        default:
+          return { ...weekDay };
+      }
+    });
+    this.newData.forEach(function (item) {
+      delete item.day;
+    });
+  }
   render() {
     return (
       <section className="sessionDuration">
@@ -96,16 +57,20 @@ class SessionDuration extends Component {
         <LineChart
           width={250}
           height={250}
-          data={data}
+          data={this.newData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
-          <XAxis dataKey="name" stroke="#FFF"/>
-          <Tooltip />
-          <Line type="monotone" dataKey="pv" stroke="#ccc" />
+          <XAxis dataKey="dayName" stroke="#FFF" axisLine={false} tickLine={false} />
+          <Tooltip content={<CustomToolTip/>} position={{y: 60}}/>
+          <Line type="monotone" dataKey="sessionLength" stroke="#ccc" dot={false}/>
         </LineChart>
       </section>
     );
   }
 }
+
+SessionDuration.propTypes = {
+  newData: PropTypes.array
+};
 
 export default SessionDuration;

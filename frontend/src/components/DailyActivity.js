@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/DailyActivity.css"
 import {
   BarChart,
+  Legend,
   CartesianGrid,
   XAxis,
   YAxis,
@@ -10,104 +11,36 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-  },
-];
-
-// extraire this.data.sessions
-// appliquer une méthode pour remplacer les dates par 1,2,3 etc
-// propsTypes array
-// utiliser les params pour trouver l'id
-
-const USER_ACTIVITY = [
-  {
-    userId: 12,
-    sessions: [
-      {
-        day: "2020-07-01",
-        kilogram: 80,
-        calories: 240,
-      },
-      {
-        day: "2020-07-02",
-        kilogram: 80,
-        calories: 220,
-      },
-      {
-        day: "2020-07-03",
-        kilogram: 81,
-        calories: 280,
-      },
-      {
-        day: "2020-07-04",
-        kilogram: 81,
-        calories: 290,
-      },
-      {
-        day: "2020-07-05",
-        kilogram: 80,
-        calories: 160,
-      },
-      {
-        day: "2020-07-06",
-        kilogram: 78,
-        calories: 162,
-      },
-      {
-        day: "2020-07-07",
-        kilogram: 76,
-        calories: 390,
-      },
-    ],
-  },
-];
+const CustomToolTip = ({ active, payload}) => {
+  if (active && payload && payload.length) {
+      return (
+          <div className="custom-tooltip">
+              <p className="custom-tooltip-text">{`${payload[0].value}kg`}</p>
+              <p className="custom-tooltip-text">{`${payload[1].value}kCal`}</p>
+          </div>
+      )
+  }
+  return null;
+};
 
 class DailyActivity extends Component {
+  constructor(props){
+    super(props);
+    this.data = this.props.data; 
+    this.newData = this.data.map(weekDay => ({number: this.data.indexOf(weekDay)+1 ,...weekDay}));
+  }
   render() {
     return (
       <article className="dailyActivity">
         <h2>Activité quotidienne</h2>
-        <BarChart width={730} height={250} data={this.props.sessions}>
+        <BarChart width={730} height={250} data={this.newData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="kilogram" fill="#282d30" />
-          <Bar dataKey="calories" fill="#e60000" />
+          <XAxis dataKey="number" />
+          <YAxis orientation="right" tickCount={3}/>
+          <Tooltip content={<CustomToolTip />} position={{ y: 50 }}/>
+          <Legend verticalAlign="top" align="right" iconType="circle" iconSize="10"/>
+          <Bar name="Poids (kg)" dataKey="kilogram" fill="#282D30" radius={[10, 10, 0, 0]} barSize={10} barGap={5}/>
+          <Bar name="Calories brûlées (kCal)" dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} barSize={10} barGap={5} />
         </BarChart>
       </article>
     );
@@ -115,7 +48,7 @@ class DailyActivity extends Component {
 }
 
 DailyActivity.propTypes = {
-  sessions: PropTypes.array
+  newData: PropTypes.array
 };
 
 export default DailyActivity;
