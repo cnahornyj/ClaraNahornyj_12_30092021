@@ -1,0 +1,30 @@
+.informationCards {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 3%;
+  background-color: #fbfbfb;
+  width: 258px;
+  height: 124px;
+  justify-content: space-evenly;
+}
+
+.informationCards > article > img {
+  padding: 16px;
+  background-color: #ff00001a;
+  border-radius: 5px;
+}
+
+.infos {
+  line-height: 0.7;
+}
+
+.infos > .number {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.infos > .unit {
+  color: #74798c;
+  font-weight: 500;
+}

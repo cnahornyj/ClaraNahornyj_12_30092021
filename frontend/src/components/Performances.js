@@ -77,12 +77,12 @@ const USER_PERFORMANCE = [
 // appliquer une méthode pour remplacer les dates par 1,2,3 etc
 // propsTypes array
 // utiliser les params pour trouver l'id
-
+ 
 class Performances extends Component {
   render() {
     return (
       <section className="performances">
-        <RadarChart outerRadius={90} width={730} height={250} data={data}>
+        <RadarChart width={256} height={261} data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" stroke="#fff"/>
           <Radar

@@ -1,3 +1,7 @@
-.performances{
-    background-color: #282d30;
+.performances {
+  background-color: #282d30;
+  width: 258px;
+  height: 263px;
+  border-radius: 5px;
+  font-size: 12px;
 }

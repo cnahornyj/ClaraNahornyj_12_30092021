@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/InformationCards.css";
 import PropTypes from "prop-types";
 
 class InformationCards extends Component {
@@ -9,11 +10,11 @@ class InformationCards extends Component {
             <img src={this.props.icon} alt="icon" />
           </article>
           <article className="infos">
-            <p>
+            <p className="number">
               {this.props.count}
               {this.props.unit}
             </p>
-            <p>{this.props.fullUnit}</p>
+            <p className="unit">{this.props.fullUnit}</p>
           </article>
       </section>
     );

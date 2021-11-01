@@ -1,7 +1,10 @@
-.sessionDuration{
-    background-color: #ff1010;
+.sessionDuration {
+  background-color: #ff1010;
+  width: 258px;
+  border-radius: 5px;
 }
 
-.sessionDuration > h2{
-    color: #ff8080;
+.sessionDuration > h2 {
+    font-size: 15px;
+  color: #ff8080;
 }
