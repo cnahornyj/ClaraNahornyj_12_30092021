@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
-const CustomToolTip = ({ active, payload}) => {
+const CustomToolTip = ({active, payload}) => {
   if (active && payload && payload.length) {
       return (
           <div className="custom-tooltip">

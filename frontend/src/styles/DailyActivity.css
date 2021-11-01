@@ -3,3 +3,11 @@
   width: 835px;
   border-radius: 5px;
 }
+
+.custom-tooltip {
+  background: #e60000;
+  text-align: center;
+  color: white;
+  left: 10px !important;
+  padding: 2px;
+}
