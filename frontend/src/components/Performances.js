@@ -14,22 +14,22 @@ class Performances extends Component {
     this.newData = this.data.map((data) => {
       switch (data.kind) {
         case 1:
-          return { disciplined: "cardio", ...data };
+          return { disciplined: "Cardio", ...data };
           break;
         case 2:
-          return { disciplined: "energy", ...data };
+          return { disciplined: "Energy", ...data };
           break;
         case 3:
-          return { disciplined: "endurance", ...data };
+          return { disciplined: "Endurance", ...data };
           break;
         case 4:
-          return { disciplined: "strength", ...data };
+          return { disciplined: "Strength", ...data };
           break;
         case 5:
-          return { disciplined: "speed", ...data };
+          return { disciplined: "Speed", ...data };
           break;
         case 6:
-          return { disciplined: "intensity", ...data };
+          return { disciplined: "Intensity", ...data };
           break;
         default:
           return { ...data };
