@@ -18,7 +18,6 @@ class SessionDuration extends Component {
   constructor(props) {
     super(props);
     this.data = this.props.data;
-    console.log(this.props.data);
     this.newData = this.data.map((weekDay) => {
       switch (weekDay.day) {
         case 1:
