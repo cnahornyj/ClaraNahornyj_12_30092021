@@ -62,6 +62,7 @@ class Profile extends Component {
   }
 
   render() {
+    //console.log(this.state.userInformations.todayScore || this.state.userInformations.score);
     if (this.state.loading) {
       return (
         <section className="profile">
@@ -73,8 +74,8 @@ class Profile extends Component {
               <DailyActivity data={this.state.activities.sessions} />
               <article>
                 <SessionDuration data={this.state.averageSessions.sessions} />
-                <Performances />
-                <Score />
+                <Performances data={this.state.performances.data}/>
+                <Score data={this.state.userInformations.todayScore || this.state.userInformations.score}/>
               </article>
             </article>
             <article>
