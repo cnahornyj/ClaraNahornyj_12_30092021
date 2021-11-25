@@ -25,6 +25,10 @@ class Profile extends Component {
     };
   }
 
+  /*
+   * Met à jour l'état de la propriété loading
+   * *
+   */
   updateLoading() {
     this.setState({
       loading: true,
@@ -32,7 +36,10 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    // Gérer le cas de l'id != de 12 ou 18
+    /*
+     * @type {number}
+     * @const
+     */
     const userId = this.props.match.params.id;
 
     fetchData(userId, "").then((data) => {
@@ -62,7 +69,6 @@ class Profile extends Component {
   }
 
   render() {
-    //console.log(this.state.userInformations.todayScore || this.state.userInformations.score);
     if (this.state.loading) {
       return (
         <section className="profile">
@@ -74,8 +80,13 @@ class Profile extends Component {
               <DailyActivity data={this.state.activities.sessions} />
               <article>
                 <SessionDuration data={this.state.averageSessions.sessions} />
-                <Performances data={this.state.performances.data}/>
-                <Score data={this.state.userInformations.todayScore || this.state.userInformations.score}/>
+                <Performances data={this.state.performances.data} />
+                <Score
+                  data={
+                    this.state.userInformations.todayScore ||
+                    this.state.userInformations.score
+                  }
+                />
               </article>
             </article>
             <article>

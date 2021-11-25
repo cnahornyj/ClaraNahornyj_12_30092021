@@ -1,36 +1,55 @@
 import React, { Component } from "react";
-import { RadialBarChart, RadialBar, Tooltip } from "recharts";
+import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 
-const data = [
-    {
-      "name": "18-24",
-      "uv": 31.47,
-      "pv": 2400,
-      "fill": "#8884d8"
-    }
-  ]
+const data = [{ name: "L1", value: 25 }];
+
+const circleSize = 350;
 
 class Score extends Component {
+  constructor(props) {
+    super(props);
+    this.data = this.props.data * 100;
+    //console.log(this.data);
+    let newData = [];
+    let obj = {value:this.data};
+    newData.push(obj);
+    console.log(newData); 
+  }
   render() {
     return (
       <section className="score">
         <RadialBarChart
-          width={730}
-          height={250}
-          innerRadius="10%"
-          outerRadius="80%"
-          data={data}
-          startAngle={360}
-          endAngle={0}
+          width={circleSize}
+          height={circleSize}
+          innerRadius={12}
+          outerRadius={18}
+          barSize={2}
+          data={this.newData}
+          startAngle={180}
+          endAngle={-270}
         >
-          <RadialBar
-            minAngle={15}
-            label={{ fill: "#666", position: "insideStart" }}
-            background
-            clockWise={true}
-            dataKey="uv"
+          <PolarAngleAxis
+            type="number"
+            domain={[0, 100]}
+            angleAxisId={0}
+            tick={false}
           />
-          <Tooltip />
+          <RadialBar
+            background
+            clockWise
+            dataKey="value"
+            cornerRadius={circleSize / 2}
+            fill="#82ca9d"
+          />
+          <text
+            x={circleSize / 2}
+            y={circleSize / 2}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="progress-label"
+          >
+            25
+          </text>
         </RadialBarChart>
       </section>
     );

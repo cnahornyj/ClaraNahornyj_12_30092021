@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import "../styles/Performances.css";
-import {
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  Radar
-} from "recharts";
+import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from "recharts";
+import PropTypes from 'prop-types';
 
 class Performances extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.data = this.props.data;
+    /*
+     * Crée un nouvel objet à partir de l'objet existant
+     * avec une nouvelle clé valeur disciplined qui diffère pour chaque élément
+     * selon la valeur de sa clé kind
+     * *
+     * @param {Object} this.data
+     * @return {Object} this.newData
+     */
     this.newData = this.data.map((data) => {
       switch (data.kind) {
         case 1:
@@ -34,8 +38,14 @@ class Performances extends Component {
         default:
           return { ...data };
       }
-    }); 
-    this.newData.forEach(function (item) {
+    });
+    /*
+     * Supprime la clé valeur kind pour chaque élément
+     * *
+     * @param {Object} this.newData
+     * @return {Object} this.newData
+     */
+    this.newData.forEach((item) => {
       delete item.kind;
     });
   }
@@ -44,7 +54,7 @@ class Performances extends Component {
       <section className="performances">
         <RadarChart width={256} height={261} data={this.newData}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="disciplined" stroke="#fff"/>
+          <PolarAngleAxis dataKey="disciplined" stroke="#fff" />
           <Radar
             dataKey="value"
             stroke="#e60000"
@@ -56,5 +66,9 @@ class Performances extends Component {
     );
   }
 }
+
+Performances.propTypes = {
+  newData: PropTypes.array,
+};
 
 export default Performances;
