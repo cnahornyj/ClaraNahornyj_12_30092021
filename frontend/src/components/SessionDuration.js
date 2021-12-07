@@ -20,13 +20,11 @@ class SessionDuration extends Component {
     super(props);
     this.data = this.props.data;
     /*
-     * Crée un nouvel objet à partir de l'objet existant
-     * avec une nouvelle clé valeur dayName qui diffère pour chaque élément
-     * selon la valeur de sa clé day
+     * Creates a new object array from the existing object array
+     * with a new disciplined value key that differs for each object
+     * depending on the value of its day key
      * *
-     * @param {Object} this.data
-     * * OR
-     * @param {Object} weekday ?
+     * @param {Object} weekday
      * @return {Object} this.newData
      */
     this.newData = this.data.map((weekDay) => {
@@ -57,9 +55,9 @@ class SessionDuration extends Component {
       }
     });
     /*
-     * Supprime la clé valeur day pour chaque élément
+     * Removes the day value key for each object
      * *
-     * @param {Object} this.newData
+     * @param {Object} item
      * @return {Object} this.newData
      */
     this.newData.forEach((item) => {

@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import "../styles/Performances.css";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from "recharts";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class Performances extends Component {
   constructor(props) {
     super(props);
     this.data = this.props.data;
     /*
-     * Crée un nouvel objet à partir de l'objet existant
-     * avec une nouvelle clé valeur disciplined qui diffère pour chaque élément
-     * selon la valeur de sa clé kind
+     * Creates a new object array from the existing object array
+     * with a new disciplined value key that differs for each object
+     * depending on the value of its kind key
      * *
-     * @param {Object} this.data
+     * @param {Object} data
      * @return {Object} this.newData
      */
     this.newData = this.data.map((data) => {
@@ -40,9 +40,9 @@ class Performances extends Component {
       }
     });
     /*
-     * Supprime la clé valeur kind pour chaque élément
+     * Removes the kind value key for each object
      * *
-     * @param {Object} this.newData
+     * @param {Object} item
      * @return {Object} this.newData
      */
     this.newData.forEach((item) => {

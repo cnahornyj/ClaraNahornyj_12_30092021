@@ -28,11 +28,11 @@ class DailyActivity extends Component {
     super(props);
     this.data = this.props.data;
     /*
-     * Crée un nouvel objet à partir de l'objet existant
-     * avec une nouvelle clé valeur number qui correspond pour chaque élément
-     * à son numéro d'index +1
+     * Creates a new object array from the existing object array
+     * with a new key value number which corresponds for each object
+     * to its index number +1 in the object array
      * *
-     * @param {Object} this.data
+     * @param {Object} weekDay
      * @return {Object} this.newData
      */
     this.newData = this.data.map((weekDay) => ({
