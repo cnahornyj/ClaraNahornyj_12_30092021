@@ -1,32 +1,53 @@
 import React, { Component } from "react";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
-
-const data = [{ name: "L1", value: 25 }];
-
-const circleSize = 350;
+import PropTypes from "prop-types";
 
 class Score extends Component {
   constructor(props) {
     super(props);
-    this.data = this.props.data * 100;
-    //console.log(this.data);
-    let newData = [];
-    let obj = {value:this.data};
-    newData.push(obj);
-    console.log(newData); 
+    /*
+     * Creates a new object array with the score or todayScore key value who's a number
+     * with a percentage value key who's a number in score or todayScore key value 
+     * and a fill value key with a string who's a hexadecimal color value
+     * *
+     * @param {Number} score || todayScore
+     * @return {Object} this.data
+     */
+    this.data = [
+      {
+        percentage: this.props.data.score
+          ? this.props.data.score * 100
+          : this.props.data.todayScore * 100,
+        fill: "#FF0000",
+      },
+    ];
   }
   render() {
     return (
       <section className="score">
+        <h2 className="score-title-text">Score</h2>
+        <p className="score-text">
+          {this.data[0].percentage}%
+          <br />
+          <span className="score-text-desc">de votre objectif</span>
+        </p>
+        <div className="inner-circle"></div>
         <RadialBarChart
-          width={circleSize}
-          height={circleSize}
-          innerRadius={12}
-          outerRadius={18}
-          barSize={2}
-          data={this.newData}
-          startAngle={180}
-          endAngle={-270}
+          barGap="10%"
+          barSize={20}
+          cy="55%"
+          data={this.data}
+          endAngle={450}
+          height={500}
+          innerRadius="70%"
+          margin={{
+            bottom: 10,
+            left: 10,
+            right: 10,
+            top: 10,
+          }}
+          startAngle={90}
+          width={700}
         >
           <PolarAngleAxis
             type="number"
@@ -34,26 +55,15 @@ class Score extends Component {
             angleAxisId={0}
             tick={false}
           />
-          <RadialBar
-            background
-            clockWise
-            dataKey="value"
-            cornerRadius={circleSize / 2}
-            fill="#82ca9d"
-          />
-          <text
-            x={circleSize / 2}
-            y={circleSize / 2}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            className="progress-label"
-          >
-            25
-          </text>
+          <RadialBar background dataKey="percentage" legendType="circle" />
         </RadialBarChart>
       </section>
     );
   }
 }
+
+Score.propTypes = {
+  data: PropTypes.object,
+};
 
 export default Score;

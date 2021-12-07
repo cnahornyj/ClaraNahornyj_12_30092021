@@ -83,8 +83,7 @@ class Profile extends Component {
                 <Performances data={this.state.performances.data} />
                 <Score
                   data={
-                    this.state.userInformations.todayScore ||
-                    this.state.userInformations.score
+                    this.state.userInformations
                   }
                 />
               </article>
