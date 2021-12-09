@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import HorizontalHeader from "../components/HorizontalHeader";
+import VerticalHeader from "../components/VerticalHeader";
 import DailyActivity from "../components/DailyActivity";
 import Performances from "../components/Performances";
 import HelloUser from "../components/HelloUser";
@@ -71,7 +73,10 @@ class Profile extends Component {
   render() {
     if (this.state.loading) {
       return (
+        <div>
+          <HorizontalHeader/>
         <section className="profile">
+          <VerticalHeader/>
           <HelloUser
             firstname={this.state.userInformations.userInfos.firstName}
           />
@@ -91,24 +96,28 @@ class Profile extends Component {
             <article>
               <InformationCards
                 icon={kcal_icon}
+                backgroundIcon={"#fcdbdb"}
                 count={this.state.userInformations.keyData.calorieCount}
                 unit="kcal"
                 fullUnit="Calories"
               />
               <InformationCards
                 icon={proteine_icon}
+                backgroundIcon={"#def0fc"}
                 count={this.state.userInformations.keyData.proteinCount}
                 unit="g"
                 fullUnit="Protéines"
               />
               <InformationCards
                 icon={glucide_icon}
+                backgroundIcon={"#fcf5db"}
                 count={this.state.userInformations.keyData.carbohydrateCount}
                 unit="g"
                 fullUnit="Glucides"
               />
               <InformationCards
                 icon={lipide_icon}
+                backgroundIcon={"#f7dee6"}
                 count={this.state.userInformations.keyData.lipidCount}
                 unit="g"
                 fullUnit="Lipides"
@@ -116,6 +125,7 @@ class Profile extends Component {
             </article>
           </section>
         </section>
+        </div>
       );
     } else {
       return <ErrorPage />;

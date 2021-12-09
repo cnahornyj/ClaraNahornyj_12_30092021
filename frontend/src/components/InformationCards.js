@@ -7,7 +7,7 @@ class InformationCards extends Component {
     return (
       <section className="informationCards">
           <article>
-            <img src={this.props.icon} alt="icon" />
+            <img src={this.props.icon} alt="icon" style={{backgroundColor : this.props.backgroundIcon}} />
           </article>
           <article className="infos">
             <p className="number">
@@ -23,6 +23,7 @@ class InformationCards extends Component {
 
 InformationCards.propTypes = {
     count: PropTypes.number,
+    backgroundIcon: PropTypes.string,
     unit: PropTypes.string,
     fullUnit: PropTypes.string
   };
