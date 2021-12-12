@@ -1,0 +1,33 @@
+.score {
+  width: 258px;
+  height: 263px;
+  background: #fbfbfb;
+  border-radius: 5px;
+}
+
+.score > h2 {
+  font-size: 15px;
+}
+
+.score-text {
+  position: relative;
+  z-index: 1;
+  width: 62px;
+  top: 50px;
+  left: 95px;
+  text-align: center;
+  color: #74798c;
+  font-weight: 500;
+}
+
+.position{
+    position: relative !important;
+    bottom: 130px !important;
+    left: 10px !important;
+}
+
+.score-text > span {
+  font-weight: bold;
+  font-size: 26px;
+  color: black;
+}

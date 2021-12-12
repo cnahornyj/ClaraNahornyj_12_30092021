@@ -52,9 +52,9 @@ class Performances extends Component {
   render() {
     return (
       <section className="performances">
-        <RadarChart width={256} height={261} data={this.newData}>
+        <RadarChart width={250} height={255} data={this.newData}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="disciplined" stroke="#fff" />
+          <PolarAngleAxis dataKey="disciplined" stroke="#fff" tick={{fontSize: 10}}/>
           <Radar
             dataKey="value"
             stroke="#e60000"

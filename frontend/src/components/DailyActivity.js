@@ -46,8 +46,8 @@ class DailyActivity extends Component {
         <h2>Activité quotidienne</h2>
         <BarChart width={730} height={250} data={this.newData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="number" />
-          <YAxis orientation="right" tickCount={3} />
+          <XAxis dataKey="number" tick={{fontSize: 12}} />
+          <YAxis orientation="right" tickCount={3} tick={{fontSize: 12}} />
           <Tooltip content={<CustomToolTip />} position={{ y: 50 }} />
           <Legend
             verticalAlign="top"

@@ -1,0 +1,11 @@
+.profile{
+    margin-left: 200px;
+    margin-top: 75px;
+}
+
+.activities{
+    display: flex;
+    justify-content: space-between;
+    width: 835px;
+    margin-top: 25px;
+}

@@ -1,9 +1,9 @@
 /*
- * Réalise un call HTTP et récupère des données
+ * Perform an HTTP call and retrieve data
  * *
- * @param {number} id numéro d'identifiant de l'utilisateur
+ * @param {number} id user ID number
  * @param {string} option endpoints
- * @return {Object} data.data données de l'API selon le numéro d'id précisé
+ * @return {Object} data.data API data according to the specified id number
  */
 const fetchData = async (id, option) => {
   let url = option

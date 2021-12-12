@@ -5,18 +5,23 @@
   background-color: black;
   width: 117px;
   height: 100%;
+  position: absolute;
+  top: 120px;
+  padding-top: 160px;
 }
 
 .verticalHeader > img {
   width: 35px;
   height: 30px;
   background-color: white;
-  padding: 12px;
+  padding: 12px 10px;
   border-radius: 5px;
+  margin: 15px 0 15px 0;
 }
 
 .verticalHeader > p {
   font-size: 12px;
+  margin-top: 140px;
   color: white;
   writing-mode: tb-rl;
   transform: rotate(180deg);

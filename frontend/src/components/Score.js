@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import PropTypes from "prop-types";
+import "../styles/Score.css";
 
 class Score extends Component {
   constructor(props) {
@@ -25,20 +26,19 @@ class Score extends Component {
   render() {
     return (
       <section className="score">
-        <h2 className="score-title-text">Score</h2>
+        <h2>Score</h2>
         <p className="score-text">
-          {this.data[0].percentage}%
+          <span>{this.data[0].percentage}%</span>
           <br />
-          <span className="score-text-desc">de votre objectif</span>
+          de votre objectif
         </p>
-        <div className="inner-circle"></div>
         <RadialBarChart
           barGap="10%"
           barSize={20}
           cy="55%"
           data={this.data}
           endAngle={450}
-          height={500}
+          height={230}
           innerRadius="70%"
           margin={{
             bottom: 10,
@@ -46,8 +46,9 @@ class Score extends Component {
             right: 10,
             top: 10,
           }}
+          className="position"
           startAngle={90}
-          width={700}
+          width={230}
         >
           <PolarAngleAxis
             type="number"

@@ -28,7 +28,7 @@ class Profile extends Component {
   }
 
   /*
-   * Met à jour l'état de la propriété loading
+   * Update the state of loading property
    * *
    */
   updateLoading() {
@@ -45,24 +45,40 @@ class Profile extends Component {
     const userId = this.props.match.params.id;
 
     fetchData(userId, "").then((data) => {
+      /*
+       * Update the state of userInformations property
+       * *
+       */
       this.setState({
         userInformations: data,
       });
     });
 
     fetchData(userId, "activity").then((data) => {
+      /*
+       * Update the state of activities property
+       * *
+       */
       this.setState({
         activities: data,
       });
     });
 
     fetchData(userId, "average-sessions").then((data) => {
+      /*
+       * Update the state of averageSessions property
+       * *
+       */
       this.setState({
         averageSessions: data,
       });
     });
 
     fetchData(userId, "performance").then((data) => {
+      /*
+       * Update the state of performances property
+       * *
+       */
       this.setState({
         performances: data,
       });
@@ -74,57 +90,53 @@ class Profile extends Component {
     if (this.state.loading) {
       return (
         <div>
-          <HorizontalHeader/>
-        <section className="profile">
-          <VerticalHeader/>
-          <HelloUser
-            firstname={this.state.userInformations.userInfos.firstName}
-          />
-          <section>
-            <article>
-              <DailyActivity data={this.state.activities.sessions} />
+          <HorizontalHeader />
+          <VerticalHeader />
+          <section className="profile">
+            <HelloUser
+              firstname={this.state.userInformations.userInfos.firstName}
+            />
+            <section style={{display: "flex"}}>
               <article>
-                <SessionDuration data={this.state.averageSessions.sessions} />
-                <Performances data={this.state.performances.data} />
-                <Score
-                  data={
-                    this.state.userInformations
-                  }
+                <DailyActivity data={this.state.activities.sessions} />
+                <article className="activities">
+                  <SessionDuration data={this.state.averageSessions.sessions} />
+                  <Performances data={this.state.performances.data} />
+                  <Score data={this.state.userInformations} />
+                </article>
+              </article>
+              <article style={{marginTop:"12px", marginLeft:"50px"}}>
+                <InformationCards
+                  icon={kcal_icon}
+                  backgroundIcon={"#fcdbdb"}
+                  count={this.state.userInformations.keyData.calorieCount}
+                  unit="kcal"
+                  fullUnit="Calories"
+                />
+                <InformationCards
+                  icon={proteine_icon}
+                  backgroundIcon={"#def0fc"}
+                  count={this.state.userInformations.keyData.proteinCount}
+                  unit="g"
+                  fullUnit="Protéines"
+                />
+                <InformationCards
+                  icon={glucide_icon}
+                  backgroundIcon={"#fcf5db"}
+                  count={this.state.userInformations.keyData.carbohydrateCount}
+                  unit="g"
+                  fullUnit="Glucides"
+                />
+                <InformationCards
+                  icon={lipide_icon}
+                  backgroundIcon={"#f7dee6"}
+                  count={this.state.userInformations.keyData.lipidCount}
+                  unit="g"
+                  fullUnit="Lipides"
                 />
               </article>
-            </article>
-            <article>
-              <InformationCards
-                icon={kcal_icon}
-                backgroundIcon={"#fcdbdb"}
-                count={this.state.userInformations.keyData.calorieCount}
-                unit="kcal"
-                fullUnit="Calories"
-              />
-              <InformationCards
-                icon={proteine_icon}
-                backgroundIcon={"#def0fc"}
-                count={this.state.userInformations.keyData.proteinCount}
-                unit="g"
-                fullUnit="Protéines"
-              />
-              <InformationCards
-                icon={glucide_icon}
-                backgroundIcon={"#fcf5db"}
-                count={this.state.userInformations.keyData.carbohydrateCount}
-                unit="g"
-                fullUnit="Glucides"
-              />
-              <InformationCards
-                icon={lipide_icon}
-                backgroundIcon={"#f7dee6"}
-                count={this.state.userInformations.keyData.lipidCount}
-                unit="g"
-                fullUnit="Lipides"
-              />
-            </article>
+            </section>
           </section>
-        </section>
         </div>
       );
     } else {

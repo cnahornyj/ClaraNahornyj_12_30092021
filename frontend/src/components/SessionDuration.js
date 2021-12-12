@@ -69,8 +69,8 @@ class SessionDuration extends Component {
       <section className="sessionDuration">
         <h2>Durée moyenne des sessions</h2>
         <LineChart
-          width={250}
-          height={250}
+          width={258}
+          height={200}
           data={this.newData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
@@ -79,6 +79,7 @@ class SessionDuration extends Component {
             stroke="#FFF"
             axisLine={false}
             tickLine={false}
+            tick={{fontSize: 12}}
           />
           <Tooltip content={<CustomToolTip />} position={{ y: 60 }} />
           <Line
