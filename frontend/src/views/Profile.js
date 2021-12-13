@@ -96,7 +96,7 @@ class Profile extends Component {
             <HelloUser
               firstname={this.state.userInformations.userInfos.firstName}
             />
-            <section style={{display: "flex"}}>
+            <section className="graphics">
               <article>
                 <DailyActivity data={this.state.activities.sessions} />
                 <article className="activities">
@@ -105,7 +105,7 @@ class Profile extends Component {
                   <Score data={this.state.userInformations} />
                 </article>
               </article>
-              <article style={{marginTop:"12px", marginLeft:"50px"}}>
+              <article className="cards">
                 <InformationCards
                   icon={kcal_icon}
                   backgroundIcon={"#fcdbdb"}
