@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ClaraNahornyj_12_30092021/static/css/main.d4384980.chunk.css",
+    "main.js": "/ClaraNahornyj_12_30092021/static/js/main.c3ac51cd.chunk.js",
+    "main.js.map": "/ClaraNahornyj_12_30092021/static/js/main.c3ac51cd.chunk.js.map",
+    "runtime-main.js": "/ClaraNahornyj_12_30092021/static/js/runtime-main.cbc04325.js",
+    "runtime-main.js.map": "/ClaraNahornyj_12_30092021/static/js/runtime-main.cbc04325.js.map",
+    "static/js/2.2567b1ab.chunk.js": "/ClaraNahornyj_12_30092021/static/js/2.2567b1ab.chunk.js",
+    "static/js/2.2567b1ab.chunk.js.map": "/ClaraNahornyj_12_30092021/static/js/2.2567b1ab.chunk.js.map",
+    "static/js/3.1567d9a3.chunk.js": "/ClaraNahornyj_12_30092021/static/js/3.1567d9a3.chunk.js",
+    "static/js/3.1567d9a3.chunk.js.map": "/ClaraNahornyj_12_30092021/static/js/3.1567d9a3.chunk.js.map",
+    "index.html": "/ClaraNahornyj_12_30092021/index.html",
+    "static/css/main.d4384980.chunk.css.map": "/ClaraNahornyj_12_30092021/static/css/main.d4384980.chunk.css.map",
+    "static/js/2.2567b1ab.chunk.js.LICENSE.txt": "/ClaraNahornyj_12_30092021/static/js/2.2567b1ab.chunk.js.LICENSE.txt",
+    "static/media/logo.e6a7b947.png": "/ClaraNahornyj_12_30092021/static/media/logo.e6a7b947.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cbc04325.js",
+    "static/js/2.2567b1ab.chunk.js",
+    "static/css/main.d4384980.chunk.css",
+    "static/js/main.c3ac51cd.chunk.js"
+  ]
+}
