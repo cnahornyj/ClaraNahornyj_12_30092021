@@ -4,11 +4,10 @@ import { LineChart, XAxis, Tooltip, Line } from "recharts";
 import PropTypes from "prop-types";
 
 const CustomToolTip = ({ active, payload }) => {
-  // A COMMENTER
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip-average">
-        <p className="custom-tooltip-average-text">{`${payload[0].value} min`}</p>
+      <div>
+        <p>{`${payload[0].value} min`}</p>
       </div>
     );
   }
