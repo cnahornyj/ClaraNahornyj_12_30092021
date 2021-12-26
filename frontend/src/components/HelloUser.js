@@ -19,6 +19,3 @@ HelloUser.propTypes = {
 
 export default HelloUser;
 
-// extraire this.data.userInfos.firstName
-// propsTypes array
-// utiliser les params pour trouver l'id

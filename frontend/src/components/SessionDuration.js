@@ -20,7 +20,7 @@ class SessionDuration extends Component {
     this.data = this.props.data;
     /*
      * Creates a new object array from the existing object array
-     * with a new disciplined value key that differs for each object
+     * with a new dayName value key that differs for each object
      * depending on the value of its day key
      * *
      * @param {Object} weekday
